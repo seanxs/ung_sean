@@ -1,0 +1,3 @@
+LIBRARY USB4RDP
+EXPORTS
+VirtualChannelEntry

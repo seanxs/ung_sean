@@ -1,0 +1,4 @@
+DIRS= Core\
+     evuh \
+     fusbhub \
+     usbstub

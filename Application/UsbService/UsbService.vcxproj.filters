@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\lz4">
+      <UniqueIdentifier>{b72726f2-0998-4abe-af4b-eff28662cb0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{187c0ce6-ddd7-4490-8604-df1dba69faa1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
+    </Filter>
+    <Filter Include="USB Network Gate Files">
+      <UniqueIdentifier>{3e9257ec-48ac-456b-b2a6-2b3459269a95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="USB over RDP Files">
+      <UniqueIdentifier>{5875002f-7c6c-453e-88d5-3cf95c48addf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="USB over RDP Files\common">
+      <UniqueIdentifier>{a945b11d-9116-45b3-b43a-b3ea9deed25a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Consts">
+      <UniqueIdentifier>{9ecf3fb3-d8d8-4a14-ba35-f065cba15bdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{74fee915-b5da-4d44-bf8c-dc7c2eca9d53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Service">
+      <UniqueIdentifier>{ed7c7f99-6824-4c1b-be1b-1b7d4c9c4831}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="USB">
+      <UniqueIdentifier>{e82c885c-0ccf-4cf6-b5a4-7f9087b22fb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Transport">
+      <UniqueIdentifier>{05f012f7-29e0-42ec-95cd-dfa75470ccfb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CommandService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RemoteControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsInRegistry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lz4\lz4.c">
+      <Filter>Source Files\lz4</Filter>
+    </ClCompile>
+    <ClCompile Include="rdp_files\OutgoingRDCConnection.cpp">
+      <Filter>USB over RDP Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rdp_files\RemoteSession.cpp">
+      <Filter>USB over RDP Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rdp_files\common\FileTransport.cpp">
+      <Filter>USB over RDP Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="rdp_files\common\ThreadWrapper.cpp">
+      <Filter>USB over RDP Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Consts\consts.cpp">
+      <Filter>Consts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Consts\consts_helper.cpp">
+      <Filter>Consts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Consts\Count.cpp">
+      <Filter>Consts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Consts\Lock.cpp">
+      <Filter>Consts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Consts\ManagerService.cpp">
+      <Filter>Consts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Consts\Registry.cpp">
+      <Filter>Consts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Consts\RemoteManager.cpp">
+      <Filter>Consts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Consts\UsbDevInfo.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Service.cpp">
+      <Filter>Service</Filter>
+    </ClCompile>
+    <ClCompile Include="UsbService.cpp">
+      <Filter>Service</Filter>
+    </ClCompile>
+    <ClCompile Include="rdp_files\ApiRemoteSession.cpp">
+      <Filter>USB over RDP Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\PoolList.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\AdvancedUsb.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\UsbHub.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Usb\UsbServer.cpp">
+      <Filter>USB</Filter>
+    </ClCompile>
+    <ClCompile Include="Usb\UsbClient.cpp">
+      <Filter>USB</Filter>
+    </ClCompile>
+    <ClCompile Include="Usb\BaseUsb.cpp">
+      <Filter>USB</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\Compression.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Consts\System.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\Security.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\Timeouts.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Consts\base64.cpp">
+      <Filter>Consts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Consts\log.cpp">
+      <Filter>Consts</Filter>
+    </ClCompile>
+    <ClCompile Include="Transport\RdpClient.cpp">
+      <Filter>Transport</Filter>
+    </ClCompile>
+    <ClCompile Include="Transport\RdpServer.cpp">
+      <Filter>Transport</Filter>
+    </ClCompile>
+    <ClCompile Include="Transport\Tcp.cpp">
+      <Filter>Transport</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\LogHelper.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CommandService.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RemoteControl.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingsInRegistry.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lz4\lz4.h">
+      <Filter>Source Files\lz4</Filter>
+    </ClInclude>
+    <ClInclude Include="public.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SflBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rdp_files\OutgoingRDCConnection.h">
+      <Filter>USB over RDP Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rdp_files\RemoteSession.h">
+      <Filter>USB over RDP Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rdp_files\common\FileTransport.h">
+      <Filter>USB over RDP Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="rdp_files\common\ThreadWrapper.h">
+      <Filter>USB over RDP Files\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Consts\consts.h">
+      <Filter>Consts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Consts\consts_helper.h">
+      <Filter>Consts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Consts\Count.h">
+      <Filter>Consts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Consts\Lock.h">
+      <Filter>Consts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Consts\ManagerService.h">
+      <Filter>Consts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Consts\RefCounter.h">
+      <Filter>Consts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Consts\Registry.h">
+      <Filter>Consts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Consts\RemoteManager.h">
+      <Filter>Consts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Consts\UsbDevInfo.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Service.h">
+      <Filter>Service</Filter>
+    </ClInclude>
+    <ClInclude Include="UsbService.h">
+      <Filter>Service</Filter>
+    </ClInclude>
+    <ClInclude Include="rdp_files\ApiRemoteSession.h">
+      <Filter>USB over RDP Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\PoolList.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\AdvancedUsb.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\UsbHub.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Usb\UsbServer.h">
+      <Filter>USB</Filter>
+    </ClInclude>
+    <ClInclude Include="Usb\UsbClient.h">
+      <Filter>USB</Filter>
+    </ClInclude>
+    <ClInclude Include="Usb\BaseUsb.h">
+      <Filter>USB</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\Compression.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Consts\System.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\Security.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\Timeouts.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Consts\base64.h">
+      <Filter>Consts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Consts\log.h">
+      <Filter>Consts</Filter>
+    </ClInclude>
+    <ClInclude Include="Transport\ITransport.h">
+      <Filter>Transport</Filter>
+    </ClInclude>
+    <ClInclude Include="Transport\RdpClient.h">
+      <Filter>Transport</Filter>
+    </ClInclude>
+    <ClInclude Include="Transport\RdpServer.h">
+      <Filter>Transport</Filter>
+    </ClInclude>
+    <ClInclude Include="Transport\Tcp.h">
+      <Filter>Transport</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\LogHelper.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\UserLog.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="UsbService.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

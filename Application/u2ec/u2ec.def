@@ -1,0 +1,73 @@
+LIBRARY	"u2ec"
+
+EXPORTS
+	ServerCreateEnumUsbDev				@1
+	ServerRemoveEnumUsbDev				@2
+
+	ServerGetUsbDevFromHub				@3
+	ServerUsbDevIsHub					@4
+	ServerUsbDevIsShared				@5
+	ServerUsbDevIsConnected				@6
+	ServerGetUsbDevName					@7
+
+	SetCallBackOnChangeDevList			@8
+
+	ServerShareUsbDev					@9
+	ServerUnshareUsbDev					@10
+	ServerGetUsbDevStatus				@11
+	ServerGetSharedUsbDevNetSettings	@22
+	ServerUnshareAllUsbDev				@33
+
+	ClientAddRemoteDev					@12
+	ClientStartRemoteDev				@13
+	ClientStopRemoteDev					@14
+	ClientRemoveRemoteDev				@15
+	ClientGetStateRemoteDev				@16
+
+	ClientEnumAvailRemoteDevOnServer	@17
+	ClientEnumAvailRemoteDev			@18
+	ClientGetRemoteDevNetSettings		@19
+	ClientGetRemoteDevName				@20
+	ClientRemoveEnumOfRemoteDev			@21
+	ClientAddRemoteDevManually			@23
+	ClientTrafficRemoteDevIsEncrypted	@24
+	ClientRemoteDevRequiresAuth			@25
+	ServerGetSharedUsbDevIsCrypt		@26
+	ServerGetSharedUsbDevRequiresAuth	@27
+	ClientGetStateSharedDevice			@28
+	ClientEnumRemoteDevOverRdp			@29
+	ServerDisconnectRemoteDev			@30
+	ServerGetSharedUsbDevIsCompressed	@31
+	ClientTrafficRemoteDevIsCompressed	@32
+
+	ServerGetUsbDevNameEx				@34
+	ServerSetDevUserDescription			@35
+	ServerSetSharedUsbDevCompress		@36
+	ServerSetSharedUsbDevCrypt			@37
+	ServerSetSharedUsbDevAuth			@38
+	
+	CheckUsbService						@39
+	UpdateUsbTree						@40
+
+	ClientGetRdpAutoconnect				@41
+	ClientSetRdpAutoconnect				@42
+	ClientGetRemoteDevValueByName		@43
+	ServerGetUsbDevClassCode			@44
+	ClientAddRemoteDevManuallyEx		@45
+	ServerShareUsbDev2					@46
+	
+	ClientGetConnectedDevValueByName	@49
+	ServerGetLastError					@50
+	ClientAddRemoteDevEx				@51
+
+	ServerGetUsbDevValueByName			@52
+	ClientEnumAvailRemoteDevOnServerTimeout	@53
+
+	ServerSetUsbDevValueByName			@54
+	ServerShareUsbWithPredefinedValues	@55
+	ServerAllowDevRemoteDisconnect		@56
+	ClientRemoteDisconnectIsEnabled		@57
+	ClientRemoteDevDisconnect			@58
+
+	ClientGetRdpIsolation				@60
+	ClientSetRdpIsolation				@61

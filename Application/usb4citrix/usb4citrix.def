@@ -1,0 +1,5 @@
+; Copyright (c) 2000-2015 ELTIMA Software All Rights Reserved
+LIBRARY usb4citrix
+
+EXPORTS
+        Load            @1

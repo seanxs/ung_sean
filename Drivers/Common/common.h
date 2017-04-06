@@ -1,0 +1,26 @@
+//#define BULK_OR_INTERRUPT_IN_PENDING_TRUE
+//#define BULK_OR_INTERRUPT_OUT_PENDING_TRUE
+#define BULK_OR_INTERRUPT_IN_DYNAMIC					// default
+
+//#define ISOCH_IN_ADJOURNED_PENDING_TRUE
+#define ISOCH_IN_PENDING_TRUE							// default
+#define ISOCH_OUT_PENDING_TRUE							// default
+//#define ISOCH_FAST_MODE
+
+//#define CONTROL_IN_PENDING_TRUE
+//#define CONTROL_OUT_PENDING_TRUE
+#define CONTROL_MANUAL_PENDING						// default
+//#define CONTROL_MANUAL_PENDING_OUT
+
+//#define AUTO_SEND_PENDING
+
+#define SET_CANCEL_ROUTINE								// default
+#define RETURN_MANUAL_PENDING_STATUS_IRP				// default
+
+#ifndef DRIVER_VERSION___
+#define DRIVER_VERSION___
+const ULONG uDriverVerison	=	0x0700;
+#endif
+// {D7705BA3-0AA6-4823-9ECD-E77E332EF147}
+DEFINE_GUID(GUID_VUHUB, 
+			0xd7705ba3, 0xaa6, 0x4823, 0x9e, 0xcd, 0xe7, 0x7e, 0x33, 0x2e, 0xf1, 0x47);
