@@ -221,6 +221,7 @@ bool CUngNetSettings::ParsingSettings (CStringA &strSettings, bool bClean)
 
 			if (iParam == -1)
 			{
+				//	avoid atl raising exception, please comment the following two lines
 				str.MakeUpper ();
 				m_mapParam [str] = "";
 			}

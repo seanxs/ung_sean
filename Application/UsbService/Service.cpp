@@ -18,6 +18,7 @@ Environment:
 
 #include "StdAfx.h"
 #include <WtsApi32.h>
+#include <Strsafe.h>
 #include "rdp_files\common\filetransport.h"
 #include "rdp_files\RemoteSession.h"
 #include ".\service.h"
@@ -90,11 +91,95 @@ DWORD CService::OnStop( DWORD& /*dwWin32Err*/, DWORD& /*dwSpecificErr*/, BOOL& b
     return SERVICE_STOPPED;
 }
 
+LONG WINAPI CService::MyUnhandledExceptionFilter(struct _EXCEPTION_POINTERS *pExceptionPointers)
+{
+	SetErrorMode(SEM_NOGPFAULTERRORBOX);
+	OutputDebugString(_T("Unhandled exception captured!\n"));
+	static CManager* pManager = GetManager();
+
+	//收集信息
+	CString strBuild;
+	strBuild.Format(_T("Build: %s %s"), __DATE__, __TIME__);
+	CString strError;
+	HMODULE hModule;
+	WCHAR szModuleName[MAX_PATH] = L"";
+	GetModuleHandleEx(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS, (LPCWSTR)pExceptionPointers->ExceptionRecord->ExceptionAddress, &hModule);
+	GetModuleFileName(hModule, szModuleName, ARRAYSIZE(szModuleName));
+	strError.Format(_T("%s %#X , %#X ,%p."), szModuleName, pExceptionPointers->ExceptionRecord->ExceptionCode, pExceptionPointers->ExceptionRecord->ExceptionFlags, pExceptionPointers->ExceptionRecord->ExceptionAddress);
+
+	//生成 mini crash dump
+	BOOL bMiniDumpSuccessful;
+	WCHAR szPath[MAX_PATH];
+	WCHAR szFileName[MAX_PATH];
+	HANDLE hDumpFile;
+	SYSTEMTIME stLocalTime;
+	MINIDUMP_EXCEPTION_INFORMATION ExpParam;
+	GetLocalTime(&stLocalTime);
+	GetModuleFileName(NULL, szPath, sizeof(szPath));
+	StringCchPrintf(szFileName, MAX_PATH, L"%s-%04d%02d%02d-%02d%02d%02d-%ld-%ld.dmp",
+		szPath,
+		stLocalTime.wYear, stLocalTime.wMonth, stLocalTime.wDay,
+		stLocalTime.wHour, stLocalTime.wMinute, stLocalTime.wSecond,
+		GetCurrentProcessId(), GetCurrentThreadId());
+	hDumpFile = CreateFile(szFileName, GENERIC_READ | GENERIC_WRITE,
+		FILE_SHARE_WRITE | FILE_SHARE_READ, 0, CREATE_ALWAYS, 0, 0);
+
+	OutputDebugString(szFileName);
+
+	MINIDUMP_USER_STREAM UserStream[2];
+	MINIDUMP_USER_STREAM_INFORMATION UserInfo;
+	UserInfo.UserStreamCount = 1;
+	UserInfo.UserStreamArray = UserStream;
+	UserStream[0].Type = CommentStreamW;
+	UserStream[0].BufferSize = strBuild.GetLength() * sizeof(WCHAR);
+	UserStream[0].Buffer = strBuild.GetBuffer();
+	UserStream[1].Type = CommentStreamW;
+	UserStream[1].BufferSize = strError.GetLength() * sizeof(WCHAR);
+	UserStream[1].Buffer = strError.GetBuffer();
+
+	OutputDebugString(strBuild);
+	OutputDebugString(strError);
+
+	ExpParam.ThreadId = GetCurrentThreadId();
+	ExpParam.ExceptionPointers = pExceptionPointers;
+	ExpParam.ClientPointers = TRUE;
+
+	OutputDebugString(_T("MiniDumpWriteDump!\n"));
+
+	bMiniDumpSuccessful = MiniDumpWriteDump(
+		GetCurrentProcess(),
+		GetCurrentProcessId(),
+		hDumpFile,
+		MINIDUMP_TYPE(MiniDumpNormal |
+			MiniDumpWithHandleData |
+			MiniDumpWithDataSegs |
+			MiniDumpWithUnloadedModules |
+			MiniDumpWithPrivateReadWriteMemory |
+			MiniDumpWithFullMemory |
+			MiniDumpWithIndirectlyReferencedMemory |
+			MiniDumpWithProcessThreadData |
+			MiniDumpWithThreadInfo),
+		&ExpParam,
+		&UserInfo,
+		NULL);
+
+	if (pManager)
+	{
+		pManager->Stop((CService*)pManager);
+		delete pManager;
+	}
+
+	return EXCEPTION_EXECUTE_HANDLER;
+}
+
+
 BOOL CService::InitInstance( DWORD dwArgc, LPTSTR* lpszArgv, DWORD& dwSpecific )
 {
 	m_manager.AddLogFile (_T("------------------------------------"));
 	m_manager.AddLogFile (_T("          Start service             "));
 	m_manager.AddLogFile (_T("------------------------------------"));
+
+	SetUnhandledExceptionFilter((LPTOP_LEVEL_EXCEPTION_FILTER)CService::MyUnhandledExceptionFilter);
     
 	if (!m_manager.Start (Consts::uTcpPortConfig, Consts::uTcpUdp))
     {

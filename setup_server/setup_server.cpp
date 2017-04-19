@@ -61,7 +61,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		std::string token;
 		if (!GetTokenFromExeNameAsStr (token) || token == "" || token == "server")
 		{
-#ifndef DEBUG
+#if 0
 			MessageBox (NULL, _T("Setup server executable is corrupted\n(Error 42)"), 
 				_T("Error"), MB_OK | MB_ICONERROR);
 			return -1;

@@ -360,6 +360,9 @@ bool CUsbClient::ReadyToReadData (const Transport::TCP_PACKAGE *pPacket, int iSi
 				pTr-> Read (lpBuffer, pPacket->SizeBuffer);
 			}
 
+			//char* temp = (char*)lpBuffer;
+			lpBuffer[pPacket->SizeBuffer + 1] = '\0';
+
 			settings.ParsingSettings(CStringA ((LPCSTR)lpBuffer), false);
 			settings.DeleteParam(Consts::szUngNetSettings [Consts::UNS_REMOTE_HOST]);
 			settings.DeleteParam(Consts::szUngNetSettings [Consts::UNS_TCP_PORT]);

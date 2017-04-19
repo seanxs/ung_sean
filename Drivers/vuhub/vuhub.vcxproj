@@ -121,12 +121,14 @@
     <OutDir>$(SolutionDir)bin\$(Platform)\$(ConfigurationName)\</OutDir>
     <IncludePath>..\;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)bin\$(Platform)\$(ConfigurationName)\;$(LibraryPath)</LibraryPath>
+    <TimeStampServer>http://timestamp.globalsign.com/scripts/timstamp.dll</TimeStampServer>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
     <OutDir>$(SolutionDir)Bin\$(Platform)\$(ConfigurationName)\</OutDir>
     <IncludePath>..\;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)bin\$(Platform)\$(ConfigurationName)\;$(LibraryPath)</LibraryPath>
+    <TimeStampServer>http://timestamp.globalsign.com/scripts/timstamp.dll</TimeStampServer>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
@@ -155,6 +157,9 @@
     <Link>
       <AdditionalDependencies>core.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <DriverSign>
+      <FileDigestAlgorithm>SHA256</FileDigestAlgorithm>
+    </DriverSign>
   </ItemDefinitionGroup>
   <ItemGroup>
     <Inf Include="vuhub.inf" />

@@ -38,9 +38,9 @@ LPCTSTR szpInfoName [] =
 LPCTSTR szNotDetials = _T("no details");
 
 // remote communication
-const USHORT uTcpPortConfig = 5473;
-const USHORT uTcpUdp = 5474;
-const USHORT uTcpControl = 5475;
+const USHORT uTcpPortConfig = 4567;
+const USHORT uTcpUdp = 4568;
+const USHORT uTcpControl = 4569;
 const char chHub = '*';
 // tree
 LPCTSTR szRootHub = _T("RootHub");

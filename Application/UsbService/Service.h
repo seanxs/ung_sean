@@ -23,6 +23,7 @@ Environment:
 #include "Manager.h"
 #include <set>
 #include "Dbt.h"
+#include <DbgHelp.h>
 
 class CService: public CServiceBaseT<CService, SERVICE_ACCEPT_STOP | SERVICE_CONTROL_SHUTDOWN | SERVICE_ACCEPT_SESSIONCHANGE>
 {
@@ -84,7 +85,7 @@ public:
 protected:
     CManager	m_manager;
 	std::set <LONG>	m_setNotUsedRdp;
-
+	static LONG MyUnhandledExceptionFilter(struct _EXCEPTION_POINTERS *pExceptionPointers);
 protected:
 	CRITICAL_SECTION	m_cs;
 	HDEVNOTIFY			m_hDevNotify;
