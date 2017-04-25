@@ -20,7 +20,7 @@ Environment:
 #define USB_CLIENT
 
 #include "BaseUsb.h"
-#include "public.h"
+#include "..\..\Drivers\common\public.h"
 
 class CUsbClient : public CBaseUsb
 {

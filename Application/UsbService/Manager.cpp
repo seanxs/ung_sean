@@ -1254,6 +1254,9 @@ DWORD WINAPI CManager::ThreadUdp (LPVOID lpParam)
     char    Buf[100];
     int             iRead;
 
+	//TCHAR DbgMsg[512] = { 0 };
+	CString DbgMsg;
+
     servAddr.sin_family = AF_INET; 
     servAddr.sin_port = htons (pBase->m_uUdpPort); 
     servAddr.sin_addr.s_addr = INADDR_ANY; 
@@ -1289,6 +1292,8 @@ DWORD WINAPI CManager::ThreadUdp (LPVOID lpParam)
             {
 				SOCKET          sockTemp;
 
+				OutputDebugString(_T("Get broadcast message!"));
+
 				if ((sockTemp = socket (AF_INET, SOCK_DGRAM, IPPROTO_UDP)) != SOCKET_ERROR) 
 				{ 
 					USHORT portOut = htons (clientAddr.sin_port);
@@ -1300,9 +1305,11 @@ DWORD WINAPI CManager::ThreadUdp (LPVOID lpParam)
 					{
 						clientAddr.sin_port = htons (pBase->m_uUdpPort + 1);
 					}
+
 					for (int a = 0; a < 10; a++)
 					{
 						sendto (sockTemp, Buf, iRead, 0, (struct sockaddr *) &clientAddr, iAddSize);
+						//sendto(sock, Buf, strlen(Buf)+1, 0, (struct sockaddr *) &clientAddr, iAddSize);
 					}
 					closesocket (sockTemp);
 				}

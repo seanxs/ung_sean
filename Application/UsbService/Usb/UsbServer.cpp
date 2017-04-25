@@ -20,7 +20,7 @@ Environment:
 #include <atldef.h>
 #include <boost/make_shared.hpp>
 #include "Manager.h"
-#include "public.h"
+#include "..\..\Drivers\common\public.h"
 #include "Service.h"
 #include "SettingsInRegistry.h"
 #include "UsbServer.h"

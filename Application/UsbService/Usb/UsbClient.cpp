@@ -20,7 +20,6 @@ Environment:
 #include "Consts\Registry.h"
 #include "Manager.h"
 #include "SettingsInRegistry.h"
-#include "public.h"
 #include "UsbClient.h"
 #include "Utils\UserLog.h"
 

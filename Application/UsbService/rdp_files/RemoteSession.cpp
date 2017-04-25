@@ -21,7 +21,7 @@ Environment:
 #include "Consts\log.h"
 #include "common\FileTransport.h"
 #include "remotesession.h"
-#include "public.h"
+#include "..\..\Drivers\common\public.h"
 #include "Manager.h"
 #include "Consts\Registry.h"
 #include "Consts\system.h"

@@ -19,7 +19,7 @@ Environment:
 
 #include "stdafx.h"
 #include "BaseUsb.h"
-#include "public.h"
+#include "..\..\Drivers\common\public.h"
 #include "u2ec/dllmain.h"
 #include "Utils/UserLog.h"
 

@@ -452,6 +452,11 @@ bool CTcp::ServerConnect ()
 	}
 
 	SetKeepAlive (sockAccept, 10000, 1000);
+	int val = 1;
+	if (setsockopt(sockAccept, IPPROTO_TCP, TCP_NODELAY, (char*)&val, sizeof(val)) != SOCKET_ERROR)
+	{
+		OutputDebugString(_T("TCP_NODELAY succeed on server!\n"));
+	}
 
 	TPtrEvent	pEvent = GetEvent();
 	if (pEvent)

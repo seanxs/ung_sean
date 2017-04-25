@@ -24,7 +24,7 @@ Environment:
 #include "atlstr.h"
 #include "newdev.h"
 #include "Winsvc.h"
-#include "public.h"
+#include "..\Drivers\common\public.h"
 #include <winioctl.h>
 #include "..\Application\Consts\UsbDevInfo.h"
 #include <boost\scoped_array.hpp>
@@ -304,7 +304,7 @@ bool AttachToUsbHub (LPCTSTR HardwareId)
 
 	Overlapped.hEvent = CreateEvent(NULL, TRUE, FALSE, NULL); 
 
-	USB_DEV	usbDev;
+	USB_DEV_SHARE usbDev;
 	usbDev.DeviceAddress = 0;
 	usbDev.ServerIpPort = 0;
 	wcscpy_s (usbDev.HubDriverKeyName, 200, CStringW (HardwareId));
@@ -312,7 +312,7 @@ bool AttachToUsbHub (LPCTSTR HardwareId)
 	if (!DeviceIoControl(m_hDevice,
 						IOCTL_USBHUB_ATTACH_TO_HUB,
 						&usbDev,
-						sizeof (USB_DEV),
+						sizeof (USB_DEV_SHARE),
 						NULL,
 						0,
 						&Returned,
