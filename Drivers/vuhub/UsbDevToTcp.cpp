@@ -190,7 +190,7 @@ void evuh::CUsbDevToTcp::StopAllThread ()
 // ****************************************
 PCHAR evuh::CUsbDevToTcp::UrbFunctionString(USHORT Func)
 {
-#if DBG
+#if _FEATURE_ENABLE_DEBUGPRINT
 	switch (Func)
 	{
 	case URB_FUNCTION_SELECT_CONFIGURATION:
@@ -302,7 +302,7 @@ PCHAR evuh::CUsbDevToTcp::UrbFunctionString(USHORT Func)
 #endif
 }
 
-#if DBG
+#if _FEATURE_ENABLE_DEBUGPRINT
 #define IOCTL_INTERNAL_USB_GET_DEVICE_HANDLE     CTL_CODE(FILE_DEVICE_USB,  \
                                                     USB_GET_DEVICE_HANDLE, \
                                                     METHOD_NEITHER,  \
@@ -378,7 +378,7 @@ PCHAR evuh::CUsbDevToTcp::UrbFunctionString(USHORT Func)
 
 PCHAR evuh::CUsbDevToTcp::UsbIoControl (LONG lFunc)
 {
-#if DBG
+#if _FEATURE_ENABLE_DEBUGPRINT
 
 	switch (lFunc)
 	{

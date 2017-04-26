@@ -396,7 +396,7 @@ NTSTATUS CFilterExtension::DetachFromDevice()
 	return STATUS_UNSUCCESSFUL;
 }
 
-#if DBG
+#if _FEATURE_ENABLE_DEBUGPRINT
 PCHAR CFilterExtension::UsbIoControl (LONG lFunc)
 {
 	switch (lFunc)

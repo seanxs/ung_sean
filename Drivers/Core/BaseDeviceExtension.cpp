@@ -377,7 +377,7 @@ void DriverBase::CBaseDeviceExtension::DeleteDevice ()
 // **********************************************************************
 PCHAR DriverBase::CBaseDeviceExtension::PnpQueryIdString(BUS_QUERY_ID_TYPE Type)
 {
-#if DBG
+#if _FEATURE_ENABLE_DEBUGPRINT
 	switch (Type)
 	{
 	case BusQueryDeviceID:
@@ -399,7 +399,7 @@ PCHAR DriverBase::CBaseDeviceExtension::PnpQueryIdString(BUS_QUERY_ID_TYPE Type)
 
 PCHAR DriverBase::CBaseDeviceExtension::PnPMinorFunctionString (UCHAR cMinorFunction)
 {
-#if DBG
+#if _FEATURE_ENABLE_DEBUGPRINT
 	switch (cMinorFunction)
 	{
 	case IRP_MN_START_DEVICE:
@@ -460,7 +460,7 @@ PCHAR DriverBase::CBaseDeviceExtension::PnPMinorFunctionString (UCHAR cMinorFunc
 
 PCHAR DriverBase::CBaseDeviceExtension::PnPMinorFunctionString (PIRP Irp)
 {
-#if DBG
+#if _FEATURE_ENABLE_DEBUGPRINT
 	PIO_STACK_LOCATION         irpStack;
 	irpStack = IoGetCurrentIrpStackLocation(Irp);
 	return PnPMinorFunctionString (irpStack->MinorFunction);
@@ -471,7 +471,7 @@ PCHAR DriverBase::CBaseDeviceExtension::PnPMinorFunctionString (PIRP Irp)
 
 PCHAR DriverBase::CBaseDeviceExtension::MajorFunctionString (PIRP Irp)
 {
-#if DBG
+#if _FEATURE_ENABLE_DEBUGPRINT
 	PIO_STACK_LOCATION         irpStack;
 	irpStack = IoGetCurrentIrpStackLocation(Irp);
 
@@ -546,7 +546,7 @@ PCHAR DriverBase::CBaseDeviceExtension::MajorFunctionString (PIRP Irp)
 // ***********************************************************
 PCHAR DriverBase::CBaseDeviceExtension::PowerMinorFunctionString (UCHAR MinorFunction)
 {
-#if DBG
+#if _FEATURE_ENABLE_DEBUGPRINT
 	switch (MinorFunction)
 	{
 	case IRP_MN_SET_POWER:
@@ -567,7 +567,7 @@ PCHAR DriverBase::CBaseDeviceExtension::PowerMinorFunctionString (UCHAR MinorFun
 
 PCHAR DriverBase::CBaseDeviceExtension::SystemPowerString(SYSTEM_POWER_STATE Type)
 {
-#if DBG
+#if _FEATURE_ENABLE_DEBUGPRINT
 	switch (Type)
 	{
 	case PowerSystemUnspecified:
@@ -596,7 +596,7 @@ PCHAR DriverBase::CBaseDeviceExtension::SystemPowerString(SYSTEM_POWER_STATE Typ
 
 PCHAR DriverBase::CBaseDeviceExtension::DevicePowerString(DEVICE_POWER_STATE Type)
 {
-#if DBG
+#if _FEATURE_ENABLE_DEBUGPRINT
 	switch (Type)
 	{
 	case PowerDeviceUnspecified:

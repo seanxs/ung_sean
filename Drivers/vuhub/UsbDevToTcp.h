@@ -50,7 +50,7 @@ extern "C" {
 class CPdoExtension;
 class CVirtualUsbHubExtension;
 
-#ifdef DBG
+#ifdef _FEATURE_ENABLE_DEBUGPRINT
 #define LOG_WAIT
 #endif
 

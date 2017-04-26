@@ -127,7 +127,7 @@ void CDebugPrintUrb::Debug_URB_HCD_AREA (CBaseClass *pBase, _URB_HCD_AREA *hcdAr
 
 PCHAR CDebugPrintUrb::UrbFunctionString(USHORT Func)
 {
-#ifdef DBG
+#ifdef _FEATURE_ENABLE_DEBUGPRINT
 	switch (Func)
 	{
 	case URB_FUNCTION_SELECT_CONFIGURATION:
@@ -233,7 +233,7 @@ PCHAR CDebugPrintUrb::UrbFunctionString(USHORT Func)
 }
 
 
-#if DBG
+#if _FEATURE_ENABLE_DEBUGPRINT
 #define IOCTL_INTERNAL_USB_GET_DEVICE_HANDLE     CTL_CODE(FILE_DEVICE_USB,  \
                                                     USB_GET_DEVICE_HANDLE, \
                                                     METHOD_NEITHER,  \
@@ -314,7 +314,7 @@ PCHAR CDebugPrintUrb::UrbFunctionString(USHORT Func)
 
 PCHAR CDebugPrintUrb::UsbIoControl (LONG lFunc)
 {
-#if DBG
+#if _FEATURE_ENABLE_DEBUGPRINT
 
 	switch (lFunc)
 	{

@@ -51,7 +51,7 @@ public:
         // main function
         void DebugPrint(LONG DebugLevel, PCHAR Format, ...)
 		{
-#if DBG
+#if _FEATURE_ENABLE_DEBUGPRINT
 			if((DebugLevel <= m_CurrentDebugLevel)) 
 			{
 				va_list Arguments; 
@@ -102,7 +102,7 @@ public:
 		}
         void DebugPrint2(LONG DebugLevel, PCHAR Format, ...)
 		{
-#if DBG
+#if _FEATURE_ENABLE_DEBUGPRINT
 			va_list Arguments; 
 			CHAR Buffer[512];
 			CHAR BufSpace[41];
@@ -163,7 +163,7 @@ public:
         // set DebugPrint Name
         void SetDebugName (PCHAR szName)
 		{
-#if DBG
+#if _FEATURE_ENABLE_DEBUGPRINT
 			strcpy (m_szName, szName);
 #endif
 		}
@@ -181,7 +181,7 @@ public:
 private:
 	DebugLevel m_CurrentDebugLevel;
 
-#if DBG
+#if _FEATURE_ENABLE_DEBUGPRINT
 private:
         CHAR    m_szName [256];
 #endif

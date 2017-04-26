@@ -78,7 +78,7 @@ public:
 
 	virtual bool VerifyShared (TPtrPdoStubExtension pPdo, PDEVICE_OBJECT PhysicalDeviceObject);
 
-#if DBG
+#if _FEATURE_ENABLE_DEBUGPRINT
 	void ShowDeviceRelation (PDEVICE_RELATIONS Relations);
 #endif
 };

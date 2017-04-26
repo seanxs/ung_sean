@@ -53,8 +53,8 @@ enum TypeTcpPackage
 
 typedef struct _TCP_PACKAGE
 {
-	LONG	Type;
 	LONG	SizeBuffer;
+	LONG	Type;
 }TCP_PACKAGE,*PTCP_PACKAGE ;
 
 class ITransport;

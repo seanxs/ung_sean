@@ -168,7 +168,7 @@ void* CList::GetItem (int iIndex)
 
 void CList::TestList()
 {
-#ifdef DBG
+#ifdef _FEATURE_ENABLE_DEBUGPRINT
 	PLIST_ENTRY nextEntry;
 	int iCount = 0;
 	for(nextEntry = m_listHeader.Flink;

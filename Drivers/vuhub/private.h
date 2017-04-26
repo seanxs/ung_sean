@@ -73,7 +73,7 @@ typedef struct _FuncInterface
 	LONG64	Param8;
 }FUNC_INTERFACE, *PFUNC_INTERFACE;
 
-#if DBG
+#if _FEATURE_ENABLE_DEBUGPRINT
 #define IOCTL_INTERNAL_USB_GET_DEVICE_HANDLE     CTL_CODE(FILE_DEVICE_USB,  \
                                                     USB_GET_DEVICE_HANDLE, \
                                                     METHOD_NEITHER,  \

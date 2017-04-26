@@ -238,7 +238,7 @@ protected:
 protected:
 };
 
-#if DBG
+#if _FEATURE_ENABLE_DEBUGPRINT
 #define PushLogPul(z,x,y) z->m_pool.PushLog (x,y);
 #else
 #define PushLogPul(z, x,y);

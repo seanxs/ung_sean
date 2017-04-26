@@ -311,7 +311,7 @@ NTSTATUS CStubDeviceExtension::AttachToDevice(PDRIVER_OBJECT DriverObject, PDEVI
 //					Additional info
 // ********************************************************************
 
-#if DBG
+#if _FEATURE_ENABLE_DEBUGPRINT
 #define IOCTL_INTERNAL_USB_GET_DEVICE_HANDLE     CTL_CODE(FILE_DEVICE_USB,  \
                                                     USB_GET_DEVICE_HANDLE, \
                                                     METHOD_NEITHER,  \
@@ -487,7 +487,7 @@ PCHAR UsbIoControl (LONG lFunc)
 NTSTATUS CStubDeviceExtension::DispatchIntrenalDevCtrl	(PDEVICE_OBJECT DeviceObject, PIRP Irp)
 {
     DebugPrint (DebugTrace, "DispatchIntrenalDevCtrl");
-	#if DBG
+	#if _FEATURE_ENABLE_DEBUGPRINT
 		PIO_STACK_LOCATION  stack;
 
 		stack = IoGetCurrentIrpStackLocation (Irp);

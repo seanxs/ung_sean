@@ -86,9 +86,6 @@ typedef struct _USB_DEV_SARE
 #pragma pack(push, 1)
 
 typedef struct _IO_STACK_LOCATION_SAVE {
-    UCHAR MajorFunction;
-    UCHAR MinorFunction;
-	UCHAR Reserved0 [6];
 
 	union {
         struct {
@@ -99,6 +96,10 @@ typedef struct _IO_STACK_LOCATION_SAVE {
         } Others;
 
     } Parameters;
+
+	UCHAR MajorFunction;
+	UCHAR MinorFunction;
+
 
 } IO_STACK_LOCATION_SAVE, *PIO_STACK_LOCATION_SAVE;
 typedef LONG NTSTATUS, *PNTSTATUS;
@@ -111,22 +112,25 @@ typedef struct _IRP_SAVE
 {
 	LONG					Size;			// size of current buffer
 	LONG					NeedSize;		// needed buffer size
+	
 	LONG64					Device;			// Identification of device
-    BYTE					Is64:1;			// Detect 64
-    BYTE                    IsIsoch:1;      // isoch data
-	BYTE					NoAnswer:1;		// Is don't need answer
-	BYTE					Dispath:1;		// Dispatch
-    BYTE                    Res2:4;         // Reserve
-	BYTE					Reserved0[3];
+   
+	ULONG64   				Information;
+	
 	ULONG					Irp;			// IRP Number
 	NTSTATUS				Status;			// current IRP status
-	LONG					Reserved1;
-	ULONG64   				Information;
+	
 	BOOL					Cancel;			// Cancel IRP flag
-	LONG					Reserved2;
-	IO_STACK_LOCATION_SAVE	StackLocation;	// Stack location info
 	LONG					BufferSize;
-	LONG					Reserved3;
+
+	IO_STACK_LOCATION_SAVE	StackLocation;	// Stack location info
+	BYTE					Is64 : 1;			// Detect 64
+	BYTE                    IsIsoch : 1;      // isoch data
+	BYTE					NoAnswer : 1;		// Is don't need answer
+	BYTE					Dispath : 1;		// Dispatch
+	BYTE                    Res2 : 4;         // Reserve
+	BYTE					Reservedx0[5];
+
 	BYTE					Buffer [0];		// Data
 }IRP_SAVE, *PIRP_SAVE;
 

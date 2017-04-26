@@ -145,7 +145,7 @@ NTSTATUS CBusFilterExtension::FilterCompletionRoutineRelations (PDEVICE_OBJECT D
         Relations = (PDEVICE_RELATIONS)Irp->IoStatus.Information;
         if (Relations)
         {
-			#if DBG
+			#if _FEATURE_ENABLE_DEBUGPRINT
 				pBase->ShowDeviceRelation (Relations);
 			#endif
 
@@ -167,7 +167,7 @@ NTSTATUS CBusFilterExtension::FilterCompletionRoutineRelations (PDEVICE_OBJECT D
 
 }
 
-#if DBG
+#if _FEATURE_ENABLE_DEBUGPRINT
 void CBusFilterExtension::ShowDeviceRelation (PDEVICE_RELATIONS Relations)
 {
 	IO_STATUS_BLOCK	ioStatus;

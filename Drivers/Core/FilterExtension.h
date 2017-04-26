@@ -52,11 +52,11 @@ public:
 	virtual NTSTATUS AttachToDevice(PDRIVER_OBJECT DriverObject, PDEVICE_OBJECT PhysicalDeviceObject);
 	virtual NTSTATUS DetachFromDevice();
 
-#if DBG
+#if _FEATURE_ENABLE_DEBUGPRINT
 	PCHAR UsbIoControl (LONG lFunc);
 #endif
 };
-#if DBG
+#if _FEATURE_ENABLE_DEBUGPRINT
 #define IOCTL_INTERNAL_USB_GET_DEVICE_HANDLE     CTL_CODE(FILE_DEVICE_USB,  \
                                                     USB_GET_DEVICE_HANDLE, \
                                                     METHOD_NEITHER,  \

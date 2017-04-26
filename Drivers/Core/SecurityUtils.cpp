@@ -163,7 +163,7 @@ bool CSecurityUtils::SetSecurityDescriptor(PDEVICE_OBJECT pDev, PSECURITY_DESCRI
 	NTSTATUS	status;
 	ULONG		lNeed;
 
-#if DBG
+#if _FEATURE_ENABLE_DEBUGPRINT
 	CBuffer				Buffer (NonPagedPool, 1024);
 	UNICODE_STRING		String;
 	CBaseClass			Class;
@@ -197,13 +197,13 @@ bool CSecurityUtils::SetSecurityDescriptor(PDEVICE_OBJECT pDev, PSECURITY_DESCRI
 
 	if (!NT_SUCCESS (status))
 	{
-#if DBG
+#if _FEATURE_ENABLE_DEBUGPRINT
 		Class.DebugPrint (CBaseClass::DebugSpecial, "SetSecurityDescriptor false %S", String.Buffer);
 #endif
 		ZwClose (hDev);
 		return false;
 	}
-#if DBG
+#if _FEATURE_ENABLE_DEBUGPRINT
 	Class.DebugPrint (CBaseClass::DebugSpecial, "SetSecurityDescriptor true %S", String.Buffer);
 #endif
 
